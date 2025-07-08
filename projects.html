@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manav Thakkar - Cybersecurity Professional</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/terminal.css" />
+    <link rel="stylesheet" href="/static/css/flags.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/static/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <style>
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+      }
+
+      .project-card {
+        background-color: rgba(20, 20, 20, 0.7);
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        border-color: var(--accent-color);
+      }
+
+      .project-header {
+        padding: 15px;
+        background-color: rgba(30, 30, 30, 0.8);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .project-title {
+        color: var(--success-color);
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+      }
+
+      .project-body {
+        padding: 15px;
+        flex: 1;
+      }
+
+      .project-description {
+        margin-bottom: 15px;
+        line-height: 1.6;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+      }
+
+      .tech-tag {
+        background-color: rgba(0, 119, 255, 0.1);
+        border: 1px solid var(--accent-color);
+        padding: 3px 8px;
+        border-radius: 3px;
+        font-size: 0.8rem;
+      }
+
+      .project-footer {
+        padding: 15px;
+        border-top: 1px solid var(--border-color);
+        background-color: rgba(30, 30, 30, 0.6);
+      }
+
+      .github-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 119, 255, 0.2);
+        color: var(--text-color);
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .github-link:hover {
+        background-color: var(--accent-color);
+        color: white;
+      }
+
+      .github-link i {
+        margin-right: 8px;
+      }
+
+      .project-terminal {
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 4px;
+        padding: 12px;
+        margin-bottom: 15px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9rem;
+        color: var(--terminal-text);
+        overflow-x: auto;
+      }
+
+      .project-terminal .command {
+        color: var(--accent-color);
+        margin-bottom: 5px;
+      }
+
+      .project-terminal .output {
+        color: var(--text-color);
+        padding-left: 15px;
+      }
+
+      .add-project {
+        background-color: rgba(20, 20, 20, 0.5);
+        border: 2px dashed var(--border-color);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        min-height: 250px;
+      }
+
+      .add-project:hover {
+        border-color: var(--accent-color);
+        background-color: rgba(30, 30, 30, 0.5);
+      }
+
+      .add-icon {
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <!-- <div id="progress-container">
+      <div id="progress-bar">
+        <div
+          id="progress"
+          style="width: 83.33333333333334%"
+          data-flags="{&#34;about&#34;: true, &#34;certifications&#34;: true, &#34;contact&#34;: true, &#34;experience&#34;: true, &#34;projects&#34;: true, &#34;resume&#34;: false}"
+        ></div>
+      </div>
+      <div id="flags-captured">
+        You've learned <span id="flags-count">5</span>/6 about Manav (83%)
+      </div>
+      Flag icons will be inserted here by JavaScript
+      <div id="flags-display"></div>
+    </div> -->
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div
+          class="nav-logo"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+          "
+        >
+          <a href="/">
+            <img
+              src="/static/images/logo.png"
+              alt="Manav Thakkar Logo"
+              id="logo"
+            />
+          </a>
+          <a id="nav-toggle" class="nav-toggle" style="display: none"> ☰ </a>
+
+          <div class="nav-links" id="nav-links">
+            <a href="/" class="nav-link">
+              <i class="fas fa-terminal"></i> Terminal
+            </a>
+            <a href="/about.html" class="nav-link">
+              <i class="fas fa-user-secret"></i> Intel File
+            </a>
+            <a href="/experience.html" class="nav-link">
+              <i class="fas fa-briefcase"></i> Mission Logs
+            </a>
+            <a href="/projects.html" class="nav-link active">
+              <i class="fas fa-code-branch"></i> Operations
+            </a>
+            <a href="/certifications.html" class="nav-link">
+              <i class="fas fa-certificate"></i> Clearances
+            </a>
+            <a href="/contact.html" class="nav-link">
+              <i class="fas fa-satellite-dish"></i> Comms Channel
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Visitor Info Display - More friendly wording -->
+      <!-- <div class="visitor-info">
+        <div class="info-header">VISITOR INFORMATION</div>
+        <div class="info-content">
+          <div class="info-item">
+            <span class="info-label">IP:</span>
+            <span id="visitor-ip">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">LOCATION:</span>
+            <span id="visitor-location">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">BROWSER:</span>
+            <span id="visitor-browser">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">OS:</span>
+            <span id="visitor-os">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">TIME:</span>
+            <span id="visitor-time">Loading...</span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-button red"></span>
+            <span class="terminal-button yellow"></span>
+            <span class="terminal-button green"></span>
+          </div>
+          <div class="terminal-title">terminal@manav-thakkar:~/operations</div>
+        </div>
+
+        <!-- Content from child templates -->
+
+        <div class="terminal-content">
+          <h1 class="terminal-heading">
+            OPERATIONS <span class="blinking-cursor">_</span>
+          </h1>
+
+          <div class="section-intro">
+            <p>
+              Accessing project database... Displaying classified operations and
+              research initiatives.
+            </p>
+          </div>
+
+          <div class="projects-container">
+            <!-- Enumerate through projects passed from Flask -->
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3 class="project-title">
+                  WiFi Deauth and Cloning using ESP8266
+                </h3>
+              </div>
+              <div class="project-body">
+                <div class="project-terminal">
+                  <div class="command">$ cat project_summary.txt</div>
+                  <div class="output">
+                    Research project on WiFi security vulnerabilities, presented
+                    at IEEE-ICAST 2022. The project demonstrates
+                    deauthentication attacks and cloning techniques using
+                    inexpensive ESP8266 hardware.
+                  </div>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">ESP8266</span>
+
+                  <span class="tech-tag">WiFi Security</span>
+
+                  <span class="tech-tag">Penetration Testing</span>
+
+                  <span class="tech-tag">IEEE 802.11</span>
+                </div>
+              </div>
+              <div class="project-footer">
+                <a
+                  href="https://github.com/your-username/wifi-deauth-esp8266"
+                  class="github-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> View on GitHub
+                </a>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3 class="project-title">Secure AI Chatbot</h3>
+              </div>
+              <div class="project-body">
+                <div class="project-terminal">
+                  <div class="command">$ cat project_summary.txt</div>
+                  <div class="output">
+                    This chatbot is an Ethical Input Checker is a web
+                    application designed to screen interactions with Large
+                    Language Models (LLMs) for potentially problematic content.
+                  </div>
+                </div>
+                <div class="project-tech">
+                  <span class="tech-tag">JavaScript</span>
+
+                  <span class="tech-tag">LLM Security</span>
+
+                  <span class="tech-tag">Red Teaming</span>
+
+                  <span class="tech-tag">OWASP LLM Top 10</span>
+                </div>
+              </div>
+              <div class="project-footer">
+                <a
+                  href="https://github.com/MOTRAKtv/SecureAI-Chat"
+                  class="github-link"
+                  target="_blank"
+                >
+                  <i class="fab fa-github"></i> View on GitHub
+                </a>
+              </div>
+            </div>
+
+            <!-- Add Your Project Card (Placeholder)
+        <div class="add-project">
+            <div class="add-icon">
+                <i class="fas fa-plus-circle"></i>
+            </div>
+            <h3>Add Your Project</h3>
+            <p>This card is a placeholder. Edit the 'projects' route in app.py to add more projects.</p>
+        </div> -->
+          </div>
+
+          <div class="section-outro">
+            <p class="success-text">
+              FLAG CAPTURED: Project intelligence successfully acquired.
+            </p>
+            <p>Continue exploring to gather more intelligence...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="footer-content">
+          <div class="copyright">
+            &copy; 2025 Manav Thakkar | Cybersecurity Professional
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/in/thakkarmanav/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/MOTRAKtv"
+              target="_blank"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Background Video -->
+    <div class="video-background">
+      <div class="overlay"></div>
+      <video autoplay muted loop id="background-video">
+        <source src="/static/images/background.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/visitor-info.js"></script>
+    <script src="/static/js/flags.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation delay to project cards
+        const projectCards = document.querySelectorAll(".project-card");
+        projectCards.forEach((card, index) => {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(20px)";
+
+          setTimeout(() => {
+            card.style.transition = "all 0.5s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, index * 150);
+        });
+      });
+    </script>
+  </body>
+  <script>
+    "undefined" === typeof _trfq || (window._trfq = []);
+    "undefined" === typeof _trfd && (window._trfd = []),
+      _trfd.push(
+        { "tccl.baseHost": "secureserver.net" },
+        { ap: "cpsh-oh" },
+        { server: "p3plzcpnl509036" },
+        { dcenter: "p3" },
+        { cp_id: "10271602" },
+        { cp_cl: "8" }
+      ); // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+  </script>
+  <script src="https://img1.wsimg.com/traffic-assets/js/tccl.min.js"></script>
+</html>

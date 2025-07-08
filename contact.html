@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manav Thakkar - Cybersecurity Professional</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/terminal.css" />
+    <link rel="stylesheet" href="/static/css/flags.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/static/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <style>
+      .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 20px;
+      }
+
+      .contact-form-container,
+      .contact-info-container {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-form {
+        background-color: rgba(20, 20, 20, 0.7);
+        padding: 25px;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--accent-color);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(30, 30, 30, 0.8);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        color: var(--text-color);
+        font-family: "Courier New", monospace;
+        transition: all 0.3s ease;
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 10px rgba(0, 119, 255, 0.3);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background-color: var(--accent-color);
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: "Courier New", monospace;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        width: 100%;
+      }
+
+      .submit-btn:hover {
+        background-color: var(--accent-color-2);
+        transform: translateY(-2px);
+      }
+
+      .contact-info {
+        background-color: rgba(20, 20, 20, 0.7);
+        padding: 25px;
+        border-radius: 5px;
+        border: 1px solid var(--border-color);
+        text-align: center;
+      }
+
+      .contact-info h3 {
+        color: var(--success-color);
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 119, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+      }
+
+      .contact-icon i {
+        color: var(--accent-color);
+        font-size: 1.2rem;
+      }
+
+      .contact-detail {
+        flex: 1;
+        text-align: left;
+      }
+
+      .contact-detail a {
+        color: var(--text-color);
+        transition: color 0.3s ease;
+      }
+
+      .contact-detail a:hover {
+        color: var(--accent-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background-color: rgba(30, 30, 30, 0.7);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+      }
+
+      .social-link:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-5px);
+      }
+
+      .social-link i {
+        color: var(--text-color);
+        font-size: 1.5rem;
+      }
+
+      .social-link:hover i {
+        color: #fff;
+      }
+
+      .message-success {
+        background-color: rgba(0, 255, 0, 0.1);
+        border-left: 4px solid var(--success-color);
+        padding: 15px;
+        margin-bottom: 20px;
+        color: var(--success-color);
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .contact-container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <!-- <div id="progress-container">
+      <div id="progress-bar">
+        <div
+          id="progress"
+          style="width: 83.33333333333334%"
+          data-flags="{&#34;about&#34;: true, &#34;certifications&#34;: true, &#34;contact&#34;: true, &#34;experience&#34;: true, &#34;projects&#34;: true, &#34;resume&#34;: false}"
+        ></div>
+      </div>
+      <div id="flags-captured">
+        You've learned <span id="flags-count">5</span>/6 about Manav (83%)
+      </div>
+      Flag icons will be inserted here by JavaScript
+      <div id="flags-display"></div>
+    </div> -->
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div
+          class="nav-logo"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+          "
+        >
+          <a href="/">
+            <img
+              src="/static/images/logo.png"
+              alt="Manav Thakkar Logo"
+              id="logo"
+            />
+          </a>
+          <a id="nav-toggle" class="nav-toggle" style="display: none"> ☰ </a>
+
+          <div class="nav-links" id="nav-links">
+            <a href="/" class="nav-link">
+              <i class="fas fa-terminal"></i> Terminal
+            </a>
+            <a href="/about.html" class="nav-link">
+              <i class="fas fa-user-secret"></i> Intel File
+            </a>
+            <a href="/experience.html" class="nav-link">
+              <i class="fas fa-briefcase"></i> Mission Logs
+            </a>
+            <a href="/projects.html" class="nav-link">
+              <i class="fas fa-code-branch"></i> Operations
+            </a>
+            <a href="/certifications.html" class="nav-link">
+              <i class="fas fa-certificate"></i> Clearances
+            </a>
+            <a href="/contact" class="nav-link active">
+              <i class="fas fa-satellite-dish"></i> Comms Channel
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Visitor Info Display - More friendly wording -->
+      <!-- <div class="visitor-info">
+        <div class="info-header">VISITOR INFORMATION</div>
+        <div class="info-content">
+          <div class="info-item">
+            <span class="info-label">IP:</span>
+            <span id="visitor-ip">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">LOCATION:</span>
+            <span id="visitor-location">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">BROWSER:</span>
+            <span id="visitor-browser">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">OS:</span>
+            <span id="visitor-os">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">TIME:</span>
+            <span id="visitor-time">Loading...</span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-button red"></span>
+            <span class="terminal-button yellow"></span>
+            <span class="terminal-button green"></span>
+          </div>
+          <div class="terminal-title">
+            terminal@manav-thakkar:~/comms channel
+          </div>
+        </div>
+
+        <!-- Content from child templates -->
+
+        <div class="terminal-content">
+          <h1 class="terminal-heading">
+            COMMS CHANNEL <span class="blinking-cursor">_</span>
+          </h1>
+
+          <div class="section-intro">
+            <p>
+              Secure communication channel established. Enter your transmission
+              details below to initiate contact.
+            </p>
+          </div>
+
+          <div class="contact-container">
+            <div class="contact-form-container">
+              <form class="contact-form" method="POST" action="/contact">
+                <div class="form-group">
+                  <label for="name">CODENAME:</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">TRANSMISSION POINT:</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="subject">SUBJECT:</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    class="form-control"
+                    placeholder="Enter message subject"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="message">TRANSMISSION:</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    class="form-control"
+                    placeholder="Enter your message"
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                  <i class="fas fa-paper-plane"></i> TRANSMIT MESSAGE
+                </button>
+              </form>
+            </div>
+
+            <div class="contact-info-container">
+              <div class="contact-info">
+                <!-- Added logo to contact page -->
+                <img
+                  src="/static/images/logo.png"
+                  alt="Manav Thakkar Logo"
+                  class="contact-logo"
+                />
+
+                <h3>SECURE CHANNELS</h3>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-detail">
+                    <a href="mailto:manavsutd@gmail.com">manavsutd@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-detail">
+                    <a href="tel:+16823718177">(682) 371-8177</a>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-detail">Texas, United States</div>
+                </div>
+
+                <h3>SOCIAL NETWORKS</h3>
+
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/thakkarmanav/"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="https://github.com/MOTRAKtv"
+                    target="_blank"
+                    class="social-link"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <!-- Changed from fa-twitter to fa-x-twitter for the X logo -->
+                  <!-- <a href="#" target="_blank" class="social-link">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+                <a href="#" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-outro">
+            <p class="success-text">
+              You've learned about my contact information!
+            </p>
+            <p>All communication channels secured and operational.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="footer-content">
+          <div class="copyright">
+            &copy; 2025 Manav Thakkar | Cybersecurity Professional
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/in/thakkarmanav/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/MOTRAKtv"
+              target="_blank"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Background Video -->
+    <div class="video-background">
+      <div class="overlay"></div>
+      <video autoplay muted loop id="background-video">
+        <source src="/static/images/background.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/visitor-info.js"></script>
+    <script src="/static/js/flags.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Form validation and submission animation could be added here
+      });
+    </script>
+  </body>
+  <script>
+    "undefined" === typeof _trfq || (window._trfq = []);
+    "undefined" === typeof _trfd && (window._trfd = []),
+      _trfd.push(
+        { "tccl.baseHost": "secureserver.net" },
+        { ap: "cpsh-oh" },
+        { server: "p3plzcpnl509036" },
+        { dcenter: "p3" },
+        { cp_id: "10271602" },
+        { cp_cl: "8" }
+      ); // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+  </script>
+  <script src="https://img1.wsimg.com/traffic-assets/js/tccl.min.js"></script>
+</html>

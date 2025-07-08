@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manav Thakkar - Cybersecurity Professional</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/terminal.css" />
+    <link rel="stylesheet" href="/static/css/flags.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono&display=swap"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/static/images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+
+    <style>
+      .experience-timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px 0;
+      }
+
+      .experience-timeline::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        background-color: var(--accent-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+        box-shadow: 0 0 10px var(--accent-color);
+      }
+
+      .timeline-container {
+        padding: 15px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 50%;
+        animation: fadeInUp 0.5s ease-out;
+      }
+
+      .timeline-container::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: -10px;
+        background-color: var(--terminal-bg);
+        border: 3px solid var(--accent-color);
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: 0 0 8px var(--accent-color);
+      }
+
+      .left {
+        left: 0;
+      }
+
+      .right {
+        left: 50%;
+      }
+
+      .right::after {
+        left: -10px;
+      }
+
+      .timeline-content {
+        padding: 25px;
+        background-color: rgba(30, 30, 40, 0.8);
+        position: relative;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        border-color: var(--accent-color);
+      }
+
+      .timeline-date {
+        color: var(--accent-color);
+        font-weight: bold;
+        margin-bottom: 12px;
+        font-size: 1.1rem;
+      }
+
+      .timeline-title {
+        color: var(--text-color);
+        margin-bottom: 8px;
+        font-size: 1.4rem;
+      }
+
+      .timeline-company {
+        font-style: italic;
+        color: var(--warning-color);
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .timeline-responsibilities {
+        list-style-type: none;
+        padding-left: 5px;
+      }
+
+      .timeline-responsibilities li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+        line-height: 1.7;
+      }
+
+      .timeline-responsibilities li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+        font-size: 1.2rem;
+      }
+
+      /* Simplified styling for command-like elements */
+      .command-element {
+        color: var(--command-color);
+        font-family: "Consolas", "Courier New", monospace;
+        font-size: 0.9em;
+        opacity: 0.7;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .experience-timeline::before {
+          left: 31px;
+        }
+
+        .timeline-container {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-container::before {
+          left: 60px;
+          border: medium solid white;
+          border-width: 10px 10px 10px 0;
+          border-color: transparent white transparent transparent;
+        }
+
+        .left::after,
+        .right::after {
+          left: 15px;
+        }
+
+        .right {
+          left: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Progress Bar -->
+    <!-- <div id="progress-container">
+      <div id="progress-bar">
+        <div
+          id="progress"
+          style="width: 83.33333333333334%"
+          data-flags="{&#34;about&#34;: true, &#34;certifications&#34;: true, &#34;contact&#34;: true, &#34;experience&#34;: true, &#34;projects&#34;: true, &#34;resume&#34;: false}"
+        ></div>
+      </div>
+      <div id="flags-captured">
+        You've learned <span id="flags-count">5</span>/6 about Manav (83%)
+      </div>
+      Flag icons will be inserted here by JavaScript
+      <div id="flags-display"></div>
+    </div> -->
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+      <div class="nav-content">
+        <div
+          class="nav-logo"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+          "
+        >
+          <a href="/">
+            <img
+              src="/static/images/logo.png"
+              alt="Manav Thakkar Logo"
+              id="logo"
+            />
+          </a>
+          <a id="nav-toggle" class="nav-toggle" style="display: none"> ☰ </a>
+
+          <div class="nav-links" id="nav-links">
+            <a href="/" class="nav-link">
+              <i class="fas fa-terminal"></i> Terminal
+            </a>
+            <a href="/about.html" class="nav-link">
+              <i class="fas fa-user-secret"></i> Intel File
+            </a>
+            <a href="/experience.html" class="nav-link active">
+              <i class="fas fa-briefcase"></i> Mission Logs
+            </a>
+            <a href="/projects.html" class="nav-link">
+              <i class="fas fa-code-branch"></i> Operations
+            </a>
+            <a href="/certifications.html" class="nav-link">
+              <i class="fas fa-certificate"></i> Clearances
+            </a>
+            <a href="/contact.html" class="nav-link">
+              <i class="fas fa-satellite-dish"></i> Comms Channel
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Visitor Info Display - More friendly wording -->
+      <!-- <div class="visitor-info">
+        <div class="info-header">VISITOR INFORMATION</div>
+        <div class="info-content">
+          <div class="info-item">
+            <span class="info-label">IP:</span>
+            <span id="visitor-ip">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">LOCATION:</span>
+            <span id="visitor-location">Loading...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">BROWSER:</span>
+            <span id="visitor-browser">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">OS:</span>
+            <span id="visitor-os">Detecting...</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">TIME:</span>
+            <span id="visitor-time">Loading...</span>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span class="terminal-button red"></span>
+            <span class="terminal-button yellow"></span>
+            <span class="terminal-button green"></span>
+          </div>
+          <div class="terminal-title">
+            terminal@manav-thakkar:~/mission logs
+          </div>
+        </div>
+
+        <!-- Content from child templates -->
+
+        <div class="terminal-content">
+          <h1 class="terminal-heading">
+            Professional Experience <span class="blinking-cursor">_</span>
+          </h1>
+
+          <div class="section-intro">
+            <p>
+              Explore my professional journey and key achievements in
+              cybersecurity and AI security roles.
+            </p>
+          </div>
+
+          <div class="experience-timeline">
+            <!-- Worldlink US -->
+            <div class="timeline-container right">
+              <div class="timeline-content">
+                <div class="timeline-date">Nov 2024 - Present</div>
+                <h3 class="timeline-title">
+                  AI Security Engineer (Emerging Tech)
+                </h3>
+                <div class="timeline-company">Worldlink US, Frisco, Texas</div>
+                <ul class="timeline-responsibilities">
+                  <li>
+                    Researched and presented new AI Vulnerabilities, Solutions,
+                    and market trends around GenAI security and its use cases.
+                  </li>
+                  <li>
+                    Improved security measures for the LLM chatbot development
+                    process by 35% to reduce AI hallucinations, prompt
+                    engineering attacks, and training data poisoning.
+                  </li>
+                  <li>
+                    Led AI Red Teaming and PenTesting for WorldLink internal
+                    systems by finding and fixing multiple security risks,
+                    increasing overall risk posture by 40%.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- CG Infinity -->
+            <div class="timeline-container left">
+              <div class="timeline-content">
+                <div class="timeline-date">May 2024 - Oct 2024</div>
+                <h3 class="timeline-title">
+                  AI Governance, Data Privacy Consultant
+                </h3>
+                <div class="timeline-company">CG Infinity, Plano, Texas</div>
+                <ul class="timeline-responsibilities">
+                  <li>
+                    Engineered and implemented data handling following privacy
+                    laws and regulations such as the EU AI Act, NIST AI RMF in
+                    OneTrust, and BigID (fully certified in OneTrust GRC and
+                    BigID modules) to improve client AI security.
+                  </li>
+                  <li>
+                    Spearheaded NIST CSF Assessment for a client to achieve
+                    compliance with 48% risk reduction.
+                  </li>
+                  <li>
+                    Provided technical guidance to junior consultants using
+                    secure Gen AI and cybersecurity tools to monitor large
+                    datasets and identify early indicators of malicious activity
+                    using scripts, ML models, and automation.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- DigitalXForce -->
+            <div class="timeline-container right">
+              <div class="timeline-content">
+                <div class="timeline-date">May 2023 - May 2024</div>
+                <h3 class="timeline-title">Cyber Security Specialist</h3>
+                <div class="timeline-company">
+                  DigitalXForce, Southlake, Texas
+                </div>
+                <ul class="timeline-responsibilities">
+                  <li>
+                    Performed advanced log analysis and network penetration
+                    testing to uncover potential threats and insider risks,
+                    resolving over 50 security issues and increasing
+                    organizational security by 30% resulting in better risk
+                    management.
+                  </li>
+                  <li>
+                    Conducted pen testing for the GRC generators finding and
+                    fixing 50+ bugs improving the product by 30%.
+                  </li>
+                  <li>
+                    Developed an IAM framework to demonstrate security posture
+                    and coverage, while successfully leading the entire SDLC
+                    process with a team of 5.
+                  </li>
+                  <li>
+                    Created a working autonomous car prototype and a health
+                    monitoring prototype to demonstrate security risks.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Inkwood Research -->
+            <div class="timeline-container left">
+              <div class="timeline-content">
+                <div class="timeline-date">Sep 2021 - Nov 2022</div>
+                <h3 class="timeline-title">
+                  Cyber Security and IAM Consultant
+                </h3>
+                <div class="timeline-company">Inkwood Research, India</div>
+                <ul class="timeline-responsibilities">
+                  <li>
+                    Carried out consented white box pen testing on the company
+                    cloud-based applications, identifying vulnerabilities and
+                    assessing security risks.
+                  </li>
+                  <li>
+                    Delivered scalable Active Directory and Intune policy
+                    solutions, significantly improving endpoint security and
+                    reducing access risks.
+                  </li>
+                  <li>
+                    Provided expert guidance on OWASP Top 10, SANS 25, and MITRE
+                    ATT&CK, ensuring secure development practices and
+                    defense-in-depth strategies.
+                  </li>
+                  <li>
+                    Trained developers and security teams on secure coding best
+                    practices, vulnerability identification, and cloud security
+                    misconfiguration prevention.
+                  </li>
+                  <li>
+                    Created detailed vulnerability assessment reports, providing
+                    actionable remediation steps and validating fixes through
+                    retesting.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-outro">
+            <p class="success-text">
+              You've learned about my professional experience!
+            </p>
+            <p>
+              Continue exploring to discover more about my skills, projects and
+              certifications.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="main-footer">
+        <div class="footer-content">
+          <div class="copyright">
+            &copy; 2025 Manav Thakkar | Cybersecurity Professional
+          </div>
+          <div class="footer-links">
+            <a
+              href="https://www.linkedin.com/in/thakkarmanav/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/MOTRAKtv"
+              target="_blank"
+              title="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Background Video -->
+    <div class="video-background">
+      <div class="overlay"></div>
+      <video autoplay muted loop id="background-video">
+        <source src="/static/images/background.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/visitor-info.js"></script>
+    <script src="/static/js/flags.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add animation delay to timeline items
+        const timelineContainers = document.querySelectorAll(
+          ".timeline-container"
+        );
+        timelineContainers.forEach((container, index) => {
+          container.style.animationDelay = `${index * 0.2}s`;
+        });
+      });
+    </script>
+  </body>
+  <script>
+    "undefined" === typeof _trfq || (window._trfq = []);
+    "undefined" === typeof _trfd && (window._trfd = []),
+      _trfd.push(
+        { "tccl.baseHost": "secureserver.net" },
+        { ap: "cpsh-oh" },
+        { server: "p3plzcpnl509036" },
+        { dcenter: "p3" },
+        { cp_id: "10271602" },
+        { cp_cl: "8" }
+      ); // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.
+  </script>
+  <script src="https://img1.wsimg.com/traffic-assets/js/tccl.min.js"></script>
+</html>

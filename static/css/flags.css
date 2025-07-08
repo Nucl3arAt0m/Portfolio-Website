@@ -1,0 +1,211 @@
+/* Progress Bar */
+#progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  font-family: "Courier New", monospace;
+  color: var(--text-color);
+  flex-direction: column;
+}
+
+#progress-bar {
+  width: 70%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+#progress {
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--progress-color),
+    var(--success-color)
+  );
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 5px var(--progress-color);
+}
+
+#flags-captured {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+#flags-count {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+/* Flag Icons Display */
+#flags-display {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.flag-icon {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(50, 50, 50, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.flag-icon.captured {
+  background-color: rgba(0, 255, 0, 0.2);
+  color: var(--success-color);
+  opacity: 1;
+  box-shadow: 0 0 5px var(--success-color);
+}
+
+.flag-icon i {
+  font-size: 14px;
+}
+
+.flag-icon::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--text-color);
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.flag-icon:hover::after {
+  opacity: 1;
+}
+
+/* Flag Notification */
+.flag-notification {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  max-width: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: translateX(110%);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1001;
+  border-left: 4px solid var(--success-color);
+}
+
+.flag-notification.show {
+  transform: translateX(0);
+}
+
+.flag-icon-notify {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 255, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.flag-icon-notify i {
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
+
+.flag-message {
+  flex: 1;
+}
+
+.flag-title {
+  font-weight: bold;
+  color: var(--success-color);
+  margin-bottom: 5px;
+}
+
+.flag-details {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Success Text for Flag Capture */
+.success-text {
+  color: var(--success-color);
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgba(0, 255, 0, 0.1);
+  border-radius: 5px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+}
+
+/* Section Intro and Outro */
+.section-intro,
+.section-outro {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 5px;
+  line-height: 1.6;
+}
+
+.section-outro {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Responsive design adjustments */
+@media screen and (max-width: 768px) {
+  #progress-bar {
+    width: 90%;
+  }
+
+  #flags-display {
+    gap: 10px;
+  }
+
+  .flag-icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .flag-icon i {
+    font-size: 12px;
+  }
+}

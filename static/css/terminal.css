@@ -1,0 +1,442 @@
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  background-color: #2d2d2d;
+  padding: 10px 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  align-items: center;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-button.red {
+  background-color: #ff5f56;
+}
+
+.terminal-button.yellow {
+  background-color: #ffbd2e;
+}
+
+.terminal-button.green {
+  background-color: #27c93f;
+}
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* Terminal Content */
+.terminal-content {
+  padding: 20px;
+  background-color: #1e1e1e;
+  font-family: "Courier New", monospace;
+  color: var(--terminal-text);
+  flex: 1;
+  overflow-y: auto;
+  line-height: 1.6;
+  position: relative;
+}
+
+/* Terminal Heading */
+.terminal-heading {
+  color: var(--success-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.blinking-cursor {
+  display: inline-block;
+  margin-left: 5px;
+  height: 1.2rem;
+  width: 0.6rem;
+  background-color: var(--success-color);
+  animation: blink 1s infinite;
+}
+
+/* Typing Animation */
+.typing-animation {
+  display: flex;
+  flex-direction: column;
+}
+
+.line {
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.line:not(.output)::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--terminal-text);
+  border-radius: 50%;
+}
+
+.output {
+  padding-left: 15px;
+  color: var(--text-color);
+}
+
+.typed-text {
+  border-right: 0.15em solid var(--terminal-text);
+  white-space: nowrap;
+  margin: 0;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  overflow: hidden;
+  max-width: fit-content;
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--terminal-text);
+  }
+}
+
+/* Terminal active cursor */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 20px;
+  background-color: var(--terminal-text);
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Command prompt stylings */
+.prompt {
+  color: var(--accent-color);
+  margin-right: 8px;
+}
+
+/* Terminal command input area */
+.command-input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.command-input {
+  background-color: transparent;
+  border: none;
+  color: var(--terminal-text);
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  flex: 1;
+  outline: none;
+}
+
+/* Code styling for terminal */
+.code {
+  font-family: "Courier New", monospace;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+/* Error and success messages */
+.success {
+  color: var(--success-color);
+}
+
+.error {
+  color: var(--danger-color);
+}
+
+.warning {
+  color: var(--warning-color);
+}
+
+/* Command history */
+.command-history {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.history-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.05);
+}
+
+.history-command {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.history-output {
+  color: var(--text-color);
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+/* Terminal animations */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 255, 0, 0.5),
+    transparent
+  );
+  animation: scan 8s linear infinite;
+  opacity: 0.3;
+  z-index: 5;
+}
+
+@keyframes scan {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+/* Matrix-like effect animations */
+.matrix-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+.matrix-rain {
+  color: var(--terminal-text);
+  position: absolute;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  user-select: none;
+}
+
+/* Nav styling */
+.main-nav {
+  background-color: rgba(20, 20, 20, 0.9);
+  padding: 15px;
+  position: sticky;
+  /* top: 40px; */
+  z-index: 100;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  margin-right: 30px;
+}
+
+.nav-logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.nav-link {
+  padding: 8px 12px;
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link i {
+  margin-right: 5px;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 119, 255, 0.2);
+  color: white;
+}
+
+.nav-link.active {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+/* Footer styling */
+.main-footer {
+  background-color: rgba(20, 20, 20, 0.8);
+  padding: 15px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 30px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-links a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(30, 30, 30, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  background-color: var(--accent-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* Error pages */
+.error-container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.error-code {
+  font-size: 6rem;
+  color: var(--danger-color);
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.error-title {
+  font-size: 2rem;
+  color: var(--warning-color);
+  margin-bottom: 20px;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-btn {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: var(--accent-color-2);
+  transform: translateY(-3px);
+}
+
+.back-btn i {
+  margin-right: 5px;
+}
+
+/* Mobile Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .nav-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-logo {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .terminal-heading {
+    font-size: 1.2rem;
+  }
+}
