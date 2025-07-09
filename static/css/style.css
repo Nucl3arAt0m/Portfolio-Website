@@ -603,8 +603,8 @@ code {
 
 .intro-logo {
     width: 100px;
-    min-width: 294px;
-    height: 334px;
+    min-width: 280px;
+    height: 320px;
     border-radius: 52px;
     box-shadow: -5px 3px 19px rgba(-43, 317, 51, 66);
 }
